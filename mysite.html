@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dileep Prasad - ICT Teacher & Tech Enthusiast</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        /* --- CSS Variables (New Color Scheme) --- */
+        :root {
+            --bg-main-dark: #181a1e; /* Even darker background for the page */
+            --bg-content-dark: #222222; /* Background for hero/section containers */
+            --bg-card-dark: #2a2f3a; /* Background for cards/elements within sections */
+            --text-light: #e0e0e0;
+            --text-muted: #b0b0b0;
+            --accent-green: #66cc33;
+            --accent-green-darker: #52a329;
+            --border-dark: #444954;
+            --progressbar-track: #404552;
+            --font-primary: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: var(--font-primary);
+            text-decoration: none;
+        }
+
+        body {
+            overflow-x: hidden;
+            overflow-y: auto; /* Allow vertical scrolling */
+            background-color: var(--bg-main-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .hero-header {
+            width: 100%;
+            min-height: 100vh; /* Make hero take full viewport height */
+            background: var(--bg-content-dark);
+            display: flex; /* For centering wrapper content vertically if needed */
+            flex-direction: column;
+            justify-content: center; /* Centers content if hero-header is taller than content */
+        }
+
+        .wrapper {
+            width: 1280px;
+            max-width: 95%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 40px 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo i {
+            height: 45px;
+            width: 45px;
+            background-color: var(--accent-green); /* Updated */
+            border-radius: 50%;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.5rem;
+            display: flex; /* For centering icon */
+            align-items: center; /* For centering icon */
+            justify-content: center; /* For centering icon */
+            margin-right: 10px; /* Increased margin */
+            cursor: pointer;
+        }
+
+        .logo .logo-text {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--text-light); /* Updated */
+        }
+
+        .container { /* This is the main content area within hero-header */
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 2rem; /* Reduced from 4rem as hero-header centers */
+            flex-grow: 1; /* Allows container to take available space */
+        }
+
+        .container .hero-pic {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 10px solid var(--border-dark); /* Updated border color */
+            box-shadow: 5px 7px 25px rgba(0, 0, 0, 0.5);
+            flex-shrink: 0; /* Prevent shrinking on smaller screens */
+        }
+
+        .hero-pic img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover; /* Ensure image covers well */
+            transition: 0.5s ease;
+        }
+
+        .hero-pic img:hover {
+            transform: scale(1.15); /* Slightly adjusted hover */
+        }
+
+        .hero-text {
+            max-width: 550px; /* Slightly increased max-width */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-text h5 {
+            color: var(--text-muted); /* Updated */
+            font-size: 16px; /* Increased size */
+            font-weight: 500;
+        }
+
+        .hero-text h5 span.input { /* Typed.js target */
+            color: var(--accent-green); /* Updated */
+            font-size: 18px; /* Increased size */
+            font-weight: 600;
+        }
+
+        .hero-text h1 {
+            color: var(--accent-green); /* Updated */
+            font-size: 3.5rem; /* Increased size */
+            margin: 10px 0; /* Added margin */
+        }
+
+        .hero-text p {
+            color: var(--text-muted); /* Updated */
+            font-size: 1rem;
+            margin-bottom: 30px; /* Added margin */
+        }
+
+        .btn-group {
+            margin: 25px 0; /* Adjusted margin */
+        }
+
+        .btn-group .btn {
+            color: #fff;
+            background-color: #333; /* Kept dark button */
+            padding: 12px 28px; /* Slightly adjusted padding */
+            margin: 5px 0px;
+            margin-right: 10px; /* Increased margin */
+            border-radius: 30px;
+            border: 2px solid var(--border-dark); /* Updated */
+            box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.3); /* Softened shadow */
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-group .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 15px -8px rgba(0,0,0,0.4);
+        }
+
+        .btn.active { /* This class for primary action button */
+            background-color: var(--accent-green);
+            border-color: var(--accent-green-darker);
+            color: #fff; /* Ensure text is white or dark depending on accent */
+        }
+         .btn.active:hover {
+            background-color: var(--accent-green-darker);
+         }
+
+
+        .hero-text .social i {
+            color: var(--text-muted); /* Updated */
+            font-size: 20px; /* Increased size */
+            margin-right: 15px; /* Increased spacing */
+            transition: 0.3s ease;
+        }
+
+        .hero-text .social i:hover {
+            color: var(--accent-green); /* Updated */
+            transform: translateY(-3px) rotate(360deg); /* Added translateY */
+        }
+
+        /* --- General Section Styling (for About, Skills, Contact) --- */
+        .content-section {
+            padding: 60px 0;
+            background-color: var(--bg-main-dark); /* Use main dark for subsequent sections */
+        }
+        .content-section:nth-child(odd) { /* Alternate background for visual separation if needed */
+             background-color: var(--bg-content-dark); /* Or keep all same if preferred */
+        }
+
+
+        .content-section h2.section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--accent-green);
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .content-section h2.section-title::after{
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-green);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+
+        /* --- Skills Section (Progress Bars) --- */
+        .skills-content { /* Container for skill items */
+            /* If you want skills in columns for categories later, use display:grid here */
+        }
+        .skill-item {
+            margin-bottom: 25px;
+            background-color: var(--bg-card-dark); /* Card background for skill item */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 1.05em; /* Slightly larger */
+            color: var(--text-light);
+        }
+        .skill-info .skill-name {
+            font-weight: 600; /* Bolder */
+        }
+        .skill-info .skill-percentage {
+            font-weight: 600; /* Bolder */
+            color: var(--accent-green);
+        }
+        .progress-bar-container {
+            width: 100%;
+            background-color: var(--progressbar-track);
+            border-radius: 25px;
+            height: 14px; /* Slightly thicker */
+            overflow: hidden;
+            border: 1px solid var(--border-dark);
+        }
+        .progress-bar-fill {
+            width: 0; /* MODIFIED: Start at 0 width */
+            height: 100%;
+            background-color: var(--accent-green);
+            border-radius: 25px;
+            transition: width 0.9s ease-in-out; /* MODIFIED: Ensure transition applies for width change */
+        }
+
+        /* --- Contact Section --- */
+        #contact { /* ID for the contact section */
+            text-align: center;
+        }
+        #contact p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+        #contact .btn { /* Re-use button style */
+            display: inline-block; /* For centering */
+            margin-top: 10px;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--bg-content-dark); /* Match hero header bg */
+            color: var(--text-muted);
+            font-size: 0.9em;
+            border-top: 1px solid var(--border-dark);
+        }
+
+
+        /* --- Responsive Design --- */
+        @media(max-width: 1024px) {
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media(max-width: 768px) {
+            header {
+                justify-content: center; /* Center logo on small screens */
+            }
+            .logo {
+                margin-bottom: 20px; /* Space if nav were below */
+            }
+            .container { /* Hero content container */
+                flex-direction: column;
+                padding-top: 2rem;
+                text-align: center; /* Center text in hero on mobile */
+            }
+            .hero-pic {
+                width: 250px; /* Smaller pic */
+                height: 250px;
+                margin-bottom: 30px; /* Space between pic and text */
+            }
+            .hero-text {
+                padding: 0; /* Removed side padding as text-align center handles it */
+                align-items: center; /* Center buttons etc. */
+            }
+             .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .hero-text p {
+                font-size: 0.95rem;
+            }
+            .btn-group {
+                margin: 30px 0;
+            }
+            .content-section h2.section-title {
+                font-size: 2rem;
+            }
+        }
+         @media(max-width: 480px) {
+            .hero-pic {
+                width: 200px;
+                height: 200px;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+             .hero-text h5 span.input, .hero-text h5 {
+                font-size: 14px;
+             }
+         }
+
+    </style>
+</head>
+
+<body>
+    <div class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <i class="fa-solid fa-d"></i>
+                    <div class="logo-text">Dileep Prasad</div>
+                </div>
+                </header>
+            <div class="container">
+                <div class="hero-pic">
+                    <img src="https://placehold.co/300x300/66cc33/181a1e?text=DP" alt="Dileep Prasad" class="profile-img-main">
+                </div>
+                <div class="hero-text">
+                    <h5>Hi I'm <span class="input"></span></h5> <h1>Dileep Prasad</h1>
+                    <p>I am an enthusiastic ICT teacher with a diploma from Pasdunrata National College of Education,
+                        currently pursuing a BIT at the University of Colombo.
+                        I specialize in teaching computer fundamentals and practical skills,
+                        making technology concepts accessible to students.
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="https://wa.me/qr/WXHGENRX5TAQB1" class="btn active" target="_blank" rel="noopener noreferrer">Whatsapp</a>
+                        <a class='btn' href='#contact'>Contact Me</a>
+                    </div>
+
+                    <div class="social">
+                        <a href="https://www.facebook.com/prasad.dilee/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/in/dileepprasa/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/dileep__prasad/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://x.com/dileep__prasad" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://pin.it/735NYNGEE" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="skills" class="content-section">
+        <div class="wrapper">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-content">
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">HTML5</span>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" data-target-width="90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">CSS3 & Responsive Design</span>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" data-target-width="85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">JavaScript (ES6+)</span>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" data-target-width="70%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Python Programming</span>
+                        <span class="skill-percentage">75%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" data-target-width="75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">ICT Curriculum Development</span>
+                        <span class="skill-percentage">88%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" data-target-width="88%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Graphic Design (Basic Tools)</span>
+                        <span class="skill-percentage">65%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" data-target-width="65%"></div>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section id="contact" class="content-section">
+        <div class="wrapper">
+            <h2 class="section-title">Contact Me</h2>
+            <p>If you'd like to get in touch, feel free to reach out via WhatsApp or social media!</p>
+            <p>You can also email me at: <a href="mailto:youremail@example.com" style="color: var(--accent-green);">youremail@example.com</a></p>
+            <div class="btn-group" style="text-align: center;">
+                 <a href="https://wa.me/qr/WXHGENRX5TAQB1" class="btn active" target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="wrapper">
+            <p>&copy; <span id="currentYear"></span> Dileep Prasad. All Rights Reserved.</p>
+            <p>Design combining your layout with new features and professional enhancements.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script>
+        // Typed.js Configuration
+        var typed = new Typed(".input", {
+            strings: ["ICT Teacher", "Tech Enthusiast", "Web Developer"], // Updated strings
+            typeSpeed: 70, 
+            backSpeed: 55, 
+            loop: true
+        });
+
+        // Copyright Year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // MODIFIED JavaScript for Progress Bar Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillItems = document.querySelectorAll('.skill-item');
+
+            const animateSkills = () => {
+                skillItems.forEach(item => {
+                    const progressBarFill = item.querySelector('.progress-bar-fill');
+                    const targetWidth = progressBarFill.getAttribute('data-target-width');
+
+                    if (!targetWidth) return; // Skip if data attribute is missing
+
+                    const rect = item.getBoundingClientRect();
+                    const isInView = (
+                        rect.top < window.innerHeight && rect.bottom >= 0
+                    );
+
+                    if (isInView) {
+                        if (!progressBarFill.dataset.animated) { 
+                            progressBarFill.style.width = targetWidth; // Set to target width
+                            progressBarFill.dataset.animated = 'true'; // Mark as animated
+                        }
+                    } else {
+                        // Reset when out of view
+                         progressBarFill.style.width = '0%'; 
+                         delete progressBarFill.dataset.animated; // Allow re-animation
+                    }
+                });
+            };
+            
+            animateSkills(); // Initial check
+            window.addEventListener('scroll', animateSkills);
+            window.addEventListener('resize', animateSkills); 
+        });
+    </script>
+</body>
+</html>
