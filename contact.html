@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Me | Dileep Prasad</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Contact Layout ── */
+    .contact-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 130px 6% 80px;
+      text-align: center;
+    }
+
+    .section-header {
+      margin-bottom: 20px;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .contact-intro {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+      max-width: 520px;
+      margin: 0 auto 60px;
+      font-weight: 300;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    /* ── Contact Cards ── */
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 100%;
+      max-width: 760px;
+      margin-bottom: 56px;
+      animation: fadeUp 1.1s ease forwards;
+    }
+
+    .contact-card {
+      background: var(--glass);
+      border: 1px solid rgba(201, 168, 76, 0.12);
+      padding: 36px 24px;
+      border-radius: 4px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: border-color 0.3s, transform 0.3s, background 0.3s;
+      cursor: default;
+    }
+
+    .contact-card:hover {
+      border-color: rgba(201, 168, 76, 0.4);
+      transform: translateY(-5px);
+      background: var(--glass2);
+    }
+
+    .cc-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .cc-label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .cc-val {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    /* ── WhatsApp Button ── */
+    .wa-big {
+      display: inline-block;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #ffffff;
+      padding: 18px 56px;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: all 0.3s;
+      font-family: 'DM Sans', sans-serif;
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    .wa-big:hover {
+      opacity: 0.9;
+      transform: translateY(-3px);
+    }
+
+    /* ── Decorative Line ── */
+    .contact-divider {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      margin: 0 auto 28px;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 700px) {
+      .contact-cards {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-canvas">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="grid-overlay"></div>
+
+  <nav>
+    <a href="index.html" class="logo-wrap">
+      <img src="Green_and_White_Simple_Thrift_Store_Logo.png" alt="DP Logo" class="logo-img" />
+      <span class="logo-text">DILEEP PRASAD</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/qr/WXHGENRX5TAQB1" target="_blank" class="wa-btn">WhatsApp</a>
+  </nav>
+
+  <main class="page-content">
+    <section class="contact-section">
+
+      <div class="section-header">
+        <div class="section-tag">Let's Connect</div>
+        <div class="gold-divider"></div>
+        <h1 class="section-title">Contact Me</h1>
+      </div>
+
+      <p class="contact-intro">
+        Whether you have a question, want to collaborate, or simply want to
+        say hello — I'd love to hear from you.
+      </p>
+
+      <div class="contact-cards">
+
+        <div class="contact-card">
+          <span class="cc-icon">📍</span>
+          <div class="cc-label">Location</div>
+          <div class="cc-val">Kantale,<br>Trincomalee</div>
+        </div>
+
+        <div class="contact-card">
+          <span class="cc-icon">📧</span>
+          <div class="cc-label">Email</div>
+          <div class="cc-val">dileepprasad<br>@gmail.com</div>
+        </div>
+
+        <div class="contact-card">
+          <span class="cc-icon">📞</span>
+          <div class="cc-label">Phone</div>
+          <div class="cc-val">0750 444 541</div>
+        </div>
+
+      </div>
+
+      <div class="contact-divider"></div>
+      <a href="https://wa.me/qr/WXHGENRX5TAQB1" target="_blank" class="wa-big">
+        💬 &nbsp; Message on WhatsApp
+      </a>
+
+    </section>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me | Dileep Prasad</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── About Layout ── */
+    .about-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 130px 6% 80px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 70px;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    /* ── Two Column Grid ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 70px;
+      width: 100%;
+      max-width: 1100px;
+      align-items: start;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    /* ── Image Side ── */
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+      filter: contrast(1.08);
+    }
+
+    .img-accent-frame {
+      position: absolute;
+      bottom: -18px;
+      right: -18px;
+      width: 65%;
+      height: 65%;
+      border: 1px solid rgba(201, 168, 76, 0.28);
+      border-radius: 4px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .img-glow {
+      position: absolute;
+      inset: 0;
+      border-radius: 4px;
+      box-shadow: 0 0 60px rgba(201, 168, 76, 0.08);
+      pointer-events: none;
+    }
+
+    /* ── Text Side ── */
+    .about-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 4vw, 46px);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.1;
+    }
+
+    .about-subtitle {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+
+    .about-desc {
+      color: var(--muted);
+      line-height: 1.95;
+      font-size: 15px;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    /* ── Separator ── */
+    .text-divider {
+      width: 50px;
+      height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin: 28px 0;
+    }
+
+    /* ── Info Cards Grid ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .info-card {
+      background: var(--glass);
+      border: 1px solid rgba(201, 168, 76, 0.12);
+      padding: 26px 22px;
+      border-radius: 4px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .info-card:hover {
+      border-color: rgba(201, 168, 76, 0.38);
+      background: var(--glass2);
+    }
+
+    .card-heading {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .card-list {
+      list-style: none;
+    }
+
+    .card-list li {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      line-height: 1.4;
+    }
+
+    .card-list li:last-child {
+      border-bottom: none;
+    }
+
+    .card-list li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── CTA ── */
+    .about-cta {
+      margin-top: 40px;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .img-accent-frame {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-canvas">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="grid-overlay"></div>
+
+  <nav>
+    <a href="index.html" class="logo-wrap">
+      <img src="Green_and_White_Simple_Thrift_Store_Logo.png" alt="DP Logo" class="logo-img" />
+      <span class="logo-text">DILEEP PRASAD</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/qr/WXHGENRX5TAQB1" target="_blank" class="wa-btn">WhatsApp</a>
+  </nav>
+
+  <main class="page-content">
+    <section class="about-section">
+
+      <div class="section-header">
+        <div class="section-tag">Who I Am</div>
+        <div class="gold-divider"></div>
+        <h1 class="section-title">About Me</h1>
+      </div>
+
+      <div class="about-grid">
+
+        <!-- Image Column -->
+        <div class="about-img-wrap">
+          <img src="your-photoo.png" alt="Dileep Prasad" class="about-img" />
+          <div class="img-accent-frame"></div>
+          <div class="img-glow"></div>
+        </div>
+
+        <!-- Text Column -->
+        <div>
+          <h2 class="about-name">Dileep Prasad</h2>
+          <p class="about-subtitle">ICT Lecturer &nbsp;·&nbsp; Educator &nbsp;·&nbsp; Tech Enthusiast</p>
+
+          <p class="about-desc">
+            මම තොරතුරු තාක්ෂණ ක්ෂේත්‍රය පිළිබඳව වසර ගණනාවක අත්දැකීම් සහිත රජයේ
+            පුහුණු ගුරුවරයෙක්මි. දැනට Village Heartbeat Empowerment Centre හි
+            කථිකාචාර්යවරයෙකු (Lecturer) ලෙස සේවය කරන අතර, දරුවන්ගේ තාක්ෂණික
+            දැනුම වර්ධනය කිරීමට කැපවී සිටිමි.
+          </p>
+
+          <p class="about-desc">
+            My passion lies in making technology accessible and understandable
+            to every student, bridging the gap between complex ICT concepts and
+            real-world application.
+          </p>
+
+          <div class="text-divider"></div>
+
+          <div class="cards-grid">
+            <div class="info-card">
+              <div class="card-heading">🎓 Education</div>
+              <ul class="card-list">
+                <li>BIT — University of Colombo</li>
+                <li>B.Edu ICT — Infortek University</li>
+                <li>Pasdunrata NCOE (Merit Pass)</li>
+              </ul>
+            </div>
+            <div class="info-card">
+              <div class="card-heading">💼 Experience</div>
+              <ul class="card-list">
+                <li>Lecturer — Village Heartbeat Centre</li>
+                <li>Govt. Teacher — T/T Sri Sumedhankara M.V</li>
+                <li>ICT Teacher — Trincomalee Zone</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="about-cta">
+            <a href="contact.html" class="btn-gold">Get In Touch →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

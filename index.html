@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dileep Prasad | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Hero Layout ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 6% 60px;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Left Content ── */
+    .hero-left {
+      flex: 1;
+      min-width: 280px;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      padding: 7px 18px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-radius: 1px;
+      margin-bottom: 28px;
+    }
+
+    .hi-text {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .main-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(50px, 7vw, 82px);
+      font-weight: 900;
+      line-height: 0.95;
+      margin-bottom: 22px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--gold2) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .main-title {
+      font-size: clamp(13px, 1.8vw, 16px);
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 460px;
+      margin-bottom: 44px;
+      font-weight: 300;
+      letter-spacing: 0.4px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    /* ── Stats ── */
+    .stats-row {
+      display: flex;
+      gap: 44px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .stat-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── Right Image ── */
+    .hero-right {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    .img-frame {
+      position: relative;
+      max-width: 390px;
+      width: 100%;
+    }
+
+    .img-border-outer {
+      position: absolute;
+      inset: -20px;
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .img-border-inner {
+      position: absolute;
+      inset: -10px;
+      border: 1px solid rgba(201, 168, 76, 0.22);
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .hero-img {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+      position: relative;
+      z-index: 1;
+      filter: contrast(1.05);
+    }
+
+    .img-badge {
+      position: absolute;
+      bottom: 24px;
+      left: -28px;
+      background: rgba(5, 8, 16, 0.96);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      padding: 16px 22px;
+      border-radius: 4px;
+      backdrop-filter: blur(20px);
+      z-index: 2;
+      min-width: 160px;
+    }
+
+    .badge-label {
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .badge-val {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ── Scroll Hint ── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: pulse 2.5s infinite;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; }
+      50%       { opacity: 1; }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column-reverse;
+        padding-top: 110px;
+        justify-content: center;
+      }
+
+      .hero-right {
+        justify-content: center;
+      }
+
+      .img-badge {
+        display: none;
+      }
+
+      .scroll-hint {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-canvas">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="grid-overlay"></div>
+
+  <nav>
+    <a href="index.html" class="logo-wrap">
+      <img src="Green_and_White_Simple_Thrift_Store_Logo.png" alt="DP Logo" class="logo-img" />
+      <span class="logo-text">DILEEP PRASAD</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/qr/WXHGENRX5TAQB1" target="_blank" class="wa-btn">WhatsApp</a>
+  </nav>
+
+  <main class="page-content">
+    <section class="hero">
+
+      <div class="hero-left">
+        <div class="tag">Government ICT Educator</div>
+        <p class="hi-text">Hi, I am</p>
+        <h1 class="main-name">Dileep<br>Prasad</h1>
+        <p class="main-title">
+          A dedicated ICT Educator &amp; Professional Tutor committed to shaping
+          the next generation of technology leaders through inspired teaching
+          and practical knowledge.
+        </p>
+        <div class="cta-row">
+          <a href="about.html" class="btn-gold">Discover More</a>
+          <a href="contact.html" class="btn-outline">Get In Touch</a>
+        </div>
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Years Teaching</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Students</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Institutions</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="img-frame">
+          <div class="img-border-outer"></div>
+          <div class="img-border-inner"></div>
+          <img src="your-photo.png" alt="Dileep Prasad" class="hero-img" />
+          <div class="img-badge">
+            <div class="badge-label">Currently</div>
+            <div class="badge-val">Lecturing</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-hint">
+        <div class="scroll-line"></div>
+        Scroll
+      </div>
+
+    </section>
+  </main>
+
+</body>
+</html>
